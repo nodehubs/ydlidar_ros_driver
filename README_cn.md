@@ -27,16 +27,29 @@ YDLIDAR ROS2驱动，以ROS2标准消息格式发送激光雷达数据。
 
 通过终端或者VNC连接RDK X3，执行以下命令
 
+tros foxy 版本 
 ```bash
 sudo apt update
 sudo apt install -y tros-ydlidar-ros2-driver
 ```
+tros humble 版本
+```bash
+sudo apt update
+sudo apt install -y tros-humble-ydlidar-ros2-driver
+```
+
 **注意：如果安装s时YDLIDR已连接在RDK X3上，则安装完后需要重新拔插一次**
 
 ## 运行YDLIDAR
 
+tros foxy 版本
 ```bash
 source /opt/tros/setup.bash
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py
+```
+tros humble 版本
+```bash
+source /opt/tros/humble/setup.bash
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 ```
 
@@ -46,8 +59,14 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 
 新打开一个终端，在里面输入以下命令查看激光雷达输出数据
 
+tros foxy 版本
 ```bash
 source /opt/tros/setup.bash
+ros2 topic echo /scan
+```
+tros humble 版本
+```bash
+source /opt/tros/humble/setup.bash
 ros2 topic echo /scan
 ```
 
@@ -55,8 +74,14 @@ ros2 topic echo /scan
 
 在PC或者支持RVIZ的环境下安装ROS2，这里以foxy版本为例，运行
 
+tros foxy 版本
 ```bash
 source /opt/ros/foxy/setup.bash
+ros2 run rviz2 rviz2
+```
+tros humble 版本
+```bash
+source /opt/ros/humble/setup.bash
 ros2 run rviz2 rviz2
 ```
 

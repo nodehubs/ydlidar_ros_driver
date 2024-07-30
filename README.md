@@ -27,16 +27,29 @@ For a comprehensive list of product models, please refer to [YDLIDAR official we
 
 Connect to RDK X3 via terminal or VNC, and execute the following commands:
 
+tros foxy: 
 ```bash
 sudo apt update
 sudo apt install -y tros-ydlidar-ros2-driver
 ```
+tros humble:
+```bash
+sudo apt update
+sudo apt install -y tros-humble-ydlidar-ros2-driver
+```
+
 **Note: If YDLIDAR is connected to RDK X3 during the installation, it needs to be reconnected after installation**
 
 ## Running YDLIDAR
 
+tros foxy:
 ```bash
 source /opt/tros/setup.bash
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py
+```
+tros humble:
+```bash
+source /opt/tros/humble/setup.bash
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 ```
 
@@ -46,15 +59,29 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 
 Open a new terminal and input the following command to view LiDAR output data:
 
+tros foxy:
 ```bash
 source /opt/tros/setup.bash
 ros2 topic echo /scan
-```### Method 2 RVIZ Method
+```
+tros humble:
+```bash
+source /opt/tros/humble/setup.bash
+ros2 topic echo /scan
+```
+
+### Method 2 RVIZ Method
 
 Install ROS2 on a PC or environment supporting RVIZ. Here is an example using the foxy version, run the following commands:
 
+tros foxy:
 ```bash
 source /opt/ros/foxy/setup.bash
+ros2 run rviz2 rviz2
+```
+tros humble:
+```bash
+source /opt/ros/humble/setup.bash
 ros2 run rviz2 rviz2
 ```
 
